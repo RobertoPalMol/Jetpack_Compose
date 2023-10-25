@@ -105,7 +105,7 @@ fun MyApp(tasks: MutableList<Task>) {
             Spacer(modifier = Modifier.height(16.dp))
 
             TaskList(tasks = tasks) { updatedTask ->
-                // Actualiza la tarea en la lista
+                
                 val index = tasks.indexOfFirst { it.id == updatedTask.id }
                 if (index != -1) {
                     tasks[index] = updatedTask
@@ -124,7 +124,7 @@ fun MyApp(tasks: MutableList<Task>) {
                     onDone = {
                         if (newTaskName.isNotBlank()) {
                             val newTask = Task(
-                                id = tasks.size, // Assign a new unique ID
+                                id = tasks.size, 
                                 name = newTaskName,
                                 isCompleted = false
                             )
@@ -144,7 +144,7 @@ fun MyApp(tasks: MutableList<Task>) {
 
     Button(
         onClick = {
-            // Eliminar las tareas completadas
+           
             tasks.removeAll { it.isCompleted }
         }
     ) {
