@@ -22,7 +22,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val defaultTasks = List(20) { index ->
+                Task(id = index, name = "Tarea ${index + 1}", isCompleted = false)
+            }
             val tasks = remember { mutableStateListOf<Task>() }
+            tasks.addAll(defaultTasks)
             MyApp(tasks)
         }
     }
@@ -157,4 +161,3 @@ fun MyAppPreview() {
     }
     MyApp(tasks = tasks.toMutableList())
 }
-
